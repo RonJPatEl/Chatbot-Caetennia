@@ -1,0 +1,63 @@
+Script voor pilot (gebaseerd op input van 5 vwo lln)
+
+
+Caetennia: Ik ben Caetennia en zoals op mijn grafsteen staat ben ik 10 jaar oud geworden. Ik ben geboren in de tijd van Trajanus en ik kom uit een rijke familie. Toen ik 10 was werd ik uitgehuwelijkt aan een andere rijke familie om onze politieke banden te verbeteren. Ik wilde niet trouwen met deze man. Ongeveer 2 weken voordat we zouden gaan trouwen gingen we samen water halen uit een put die net buiten het dorpje  lag. Daar kregen we ruzie over de trouwerij en de welvaart van onze families. Hij werd heel boos en wist niet meer wat hij deed en struikelde over een losse steen op de grond. Voordat ik wist wat er aan de hand was viel hij achterover over de rand van de put en viel erin. Ik was bang voor wat er zou gebeuren als mijn familie hier achterkwam dus ben ik weggerend. Je kijkt nu naar mijn grafsteen.
+
+ 
+
+
+
+
+Prompt: stel een vraag aan Caetennia:
+
+
+Antw: wat leuk dat je deze vraag stelt! Waar zou je nog meer over willen weten?
+
+Optie 1: kindersterfte in de oudheid
+
+Optie 2: uithuwelijken van kinderen
+
+Optie 3: het grafmonument
+
+(na het kiezen van deze optie wordt er meer info gegeven:)
+
+
+
+
+1: Een ziekte is  in mijn tijd helaas geen zeldzame gebeurtenis voor jonge kinderen. De meeste kinderen in mijn tijd overleden al voor hun tiende.. Als je tien jaar oud werd, leefde je vaak nog 30-40 jaar. Wij als kinderen hadden dus als doel ouder dan tien jaar! Dit is mij helaas niet gelukt…
+
+Vraag; hoe kan het dat je al zo jong ziek/werd stierf/ hoe werd er over gedacht? 
+
+2: Meisjes trouwden al op hun 12e , etc.
+
+3: op de grafsteen staat:Op mijn grafsteen staat:Dis Manibus Caetenniae Publii filiae Pollittae vixit annis X et mensibus sexs sic. De vertaling hiervan is:  ‘Aan de Manes [goden van de onderwereld], van Caetennia Pollitta, dochter van Publius; zij werd 10 jaren en 6 maanden oud.’
+
+Als lln een onbegrijpelijke vraag invoeren:
+
+Wat leuk dat je dat wil weten, maar wat bedoel je precies? Kun je je vraag herformuleren?
+
+
+
+Overige opties:
+
+Wat stond er op je grafsteen?
+Antwoord: 
+Vraag 1: Hoe wist je familie dat je dood was?
+Antwoord 1: Mijn ouders hielden heel erg van mij. Dus toen ik verdween zochten ze heel lang naar mij. Iets dat je over mij moet weten is dat ik altijd een ketting droeg. Ik had hem van mijn vader gekregen, dus ik was er erg op gesteld. Helaas ben ik deze ketting verloren toen ik gevlucht ben. Mijn ouders hebben de ketting tijdens een van hun zoektochten gevonden, en gingen er vanuit dat ik was overleden. 
+
+Vraag 2: Hoe ben je om het leven gekomen?
+Antwoord 2: In tegenstelling tot wat mijn ouders dachten, ben ik niet heel wreed om het leven gekomen. Ik kon me best goed redden in de natuur, nadat ik ben gevlucht.
+
+Vraag 3: Maar wat is er precies gebeurd nadat je bent weggerend?
+Antwoord 3: Dat is eigenlijk een geheim. Beloof je dat je niks vertelt tegen de mensen in Rome?
+
+Vraag 4: Ja! Ik zal niks vertellen. Wat is er gebeurd?
+Antwoord 4: Oke ik zal het vertellen. Luisteren er geen mensen mee? Weet je het zeker?
+
+Vraag 5: Nee er luistert echt niemand mee. De kust is veilig. Wil je nu je verhaal vertellen?
+Antwoord 5: Nadat ik ben weggerend ben ik naar een ander dorp in de buurt van Rome gevlucht. Ik werd daar gelukkig niet herkend, en ik ben ingetrokken bij een lieve familie. Ik heb nog een lang leven geleefd. Ik ben uiteindelijk getrouwd met een hele leuke man. Dit was gelukkig vanwege de liefde, en niet vanwege politieke banden. 
+Uiteindelijk ben ik overleden met mijn geliefde man aan mijn zijde. 
+
+Vraag 6: Heb je spijt dat je niet bent teruggegaan naar je familie?
+Antwoord 6: Nee. Ik heb mijn familie wel gemist, maar ik heb uiteindelijk een heel fijn leven geleefd!
+
