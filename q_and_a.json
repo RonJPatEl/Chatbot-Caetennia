@@ -173,7 +173,7 @@
          "topic":  "places",
          "keywords": ["place", "location", "stay"],
          "responses": ["That place is really surprising!"]
-        }
+        },
             {"emotion": "anger",
          "topic":  "unknown",
          "keywords": [],
