@@ -1,0 +1,12 @@
+{"intents": [
+    {"topic":  "1",
+     "responses": ["lijst antwoorden over kindersterfte in de oudheid"]
+    },
+    {"topic":  "2",
+     "responses": ["lijst antwoorden over uithuwelijken van kinderen"]
+    },
+    {"topic":  "3",
+     "responses": ["lijst antwoorden over het grafmonument"]
+    }
+]
+}
