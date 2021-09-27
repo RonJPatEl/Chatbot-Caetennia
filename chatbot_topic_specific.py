@@ -12,7 +12,7 @@ from spacy.lang.nl.stop_words import STOP_WORDS as nl_stop
 
 def read_qa(qa_path):
     '''Read in JSON file with topics and corresponding responses'''
-    with open(qa_path) as f:
+    with open(qa_path, encoding='utf8') as f:
         qa_data = json.load(f)
 
     return qa_data
@@ -112,17 +112,25 @@ while continue_dialogue:
         topic = topic.lower()
 
         # print additional information based on chosen topic
-        if 'kindersterfte' in topic or 'ziekte' in topic:
-            topic = 'kindersterfte in de oudheid'
-        elif 'huwelijk' in topic or 'trouwen' in topic:
-            topic = 'het huwelijk'
-        elif 'grafsteen' in topic or 'altaar' in topic:
-            topic = 'het grafaltaar'
+        if 'graf' in topic or 'altaar' in topic or 'steen' in topic:
+            topic = 'grafsteen'
+        elif 'persoonlijk' in topic:
+            topic = 'persoonlijk'
+        elif 'kindersterfte' in topic or 'overleden' in topic or 'sterven' in topic or 'dood' in topic:
+            topic = 'kindersterfte'
+        elif 'opvoeding' in topic or 'ouders' in topic:
+            topic = 'opvoeding'
+        elif 'school' in topic:
+            topic = 'school'
+        elif 'pedagoog' in topic:
+            topic = 'pedagoog'
+        elif 'voedster' in topic:
+            topic = 'voedster'
 
         while stay_within_topic:
 
             # get input question from user
-            human_text = input(f"\nCaetennia: Ik ben benieuwd naar je vraag over {topic}! Wat zou je willen weten?\n")
+            human_text = input(f"\nCaetennia: Ik ben benieuwd naar je vraag over het onderwerp '{topic}'! Wat zou je willen weten?\n")
             human_text = human_text.lower()
             
             # generate response from chatbot
@@ -131,12 +139,12 @@ while continue_dialogue:
             print()
                         
             # ask user if they want to change the topic
-            another_question = input(f"Caetennia: Wil je nog iets vragen over {topic}?\n")
+            another_question = input(f"Caetennia: Wil je nog iets vragen over het onderwerp '{topic}'?\n")
             
             # make input from user lowercase
             another_question = another_question.lower()
             if 'nee' in another_question:
                 break
     else:
-        print("\nCaetennia: Ok, leuk je gesproken te hebben!")
+        print("\nCaetennia: Oké, leuk je gesproken te hebben!")
         break
