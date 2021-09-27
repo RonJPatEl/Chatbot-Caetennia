@@ -94,49 +94,39 @@ Je kijkt nu naar mijn grafsteen.""")
 
 continue_dialogue = True
 stay_within_topic = True
-verb = "beginnen"
 
 while continue_dialogue:
 
-    ask_question = input(f"\nCaetennia: Wil je het gesprek {verb}? \n")
-    verb = "voortzetten"
+    ask_question = input("\nWil je iets vragen aan Caetennia? Voer '1' in voor ja, '0' voor nee. ")
 
-    # make input from user lowercase
-    ask_question = ask_question.lower()
-
-    if 'ja' in ask_question:
+    if ask_question == '1':
         # let user choose topic
-        topic = input("\nCaetennia: Leuk! Over welk onderwerp zou je meer willen weten?\n")
+        print("\nOver welk onderwerp zou je meer willen weten?\nKies uit:\n1) Kindersterfte in de oudheid\n2) Uithuwelijken van kinderen\n3) Het grafmonument")
+        topic = input("Voer keuze in (1, 2 of 3): ")
         
-        # make input from user lowercase
-        topic = topic.lower()
-
         # print additional information based on chosen topic
-        if 'kindersterfte' in topic or 'ziekte' in topic:
-            topic = 'kindersterfte in de oudheid'
-        elif 'huwelijk' in topic or 'trouwen' in topic:
-            topic = 'het huwelijk'
-        elif 'grafsteen' in topic or 'altaar' in topic:
-            topic = 'het grafaltaar'
+        if topic == '1':
+            print("\nEen ziekte is in mijn tijd helaas geen zeldzame gebeurtenis voor jonge kinderen. De meeste kinderen in mijn tijd overleden al voor hun tiende.. Als je tien jaar oud werd, leefde je vaak nog 30-40 jaar. Wij als kinderen hadden dus als doel ouder dan tien jaar! Dit is mij helaas niet gelukt…\n")
+        elif topic == '2':
+            print("\nMeisjes trouwden al op hun 12e, etc.\n")
+        elif topic == '3':
+            print("\nOp mijn grafsteen staat: Dis Manibus Caetenniae Publii filiae Pollittae vixit annis X et mensibus sexs sic. De vertaling hiervan is:  ‘Aan de Manes [goden van de onderwereld], van Caetennia Pollitta, dochter van Publius; zij werd 10 jaren en 6 maanden oud.’\n")
 
         while stay_within_topic:
 
             # get input question from user
-            human_text = input(f"\nCaetennia: Ik ben benieuwd naar je vraag over {topic}! Wat zou je willen weten?\n")
+            human_text = input("Stel een vraag aan Caetennia (over je gekozen onderwerp): ")
             human_text = human_text.lower()
             
             # generate response from chatbot
-            print("\nCaetennia: ", end="")
+            print("Caetennia: ", end="")
             print(generate_response(topic, human_text, qa_data))
             print()
                         
             # ask user if they want to change the topic
-            another_question = input(f"Caetennia: Wil je nog iets vragen over {topic}?\n")
-            
-            # make input from user lowercase
-            another_question = another_question.lower()
-            if 'nee' in another_question:
+            another_question = input("Wil je nog iets vragen over dit onderwerp? Voer '1' in voor ja, '0' voor nee. ")
+            if another_question == '0':
                 break
     else:
-        print("\nCaetennia: Ok, leuk je gesproken te hebben!")
+        print("Caetennia: Leuk je gesproken te hebben!")
         break

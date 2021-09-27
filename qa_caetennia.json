@@ -1,20 +1,12 @@
 {"intents": [
-    {"topic":  "kindersterfte in de oudheid",
-     "responses": ["Ik ben op jonge leeftijd gestorven.",
-                   "Ik ben maar tien jaar en zes maanden oud geworden.",
-                   "De Romeinen kenden bij de geboorte van kinderen een oud gebruik waarbij de vader moest beslissen of de pasgeborene in leven mocht blijven."]
+    {"topic":  "1",
+     "responses": ["lijst antwoorden over kindersterfte in de oudheid"]
     },
-    {"topic":  "het huwelijk",
-     "responses": ["Meisjes mochten al trouwen als ze twaalf jaar waren, en jongens als ze veertien jaar waren.",
-                   "Omdat ik al voor de legale trouwleeftijd ben overleden, ben ik niet getrouwd.",
-                   "Het feit dat ik niet kon trouwen was erg vervelend voor mijn familie, want daardoor konden ze geen connectie maken met een andere familie, wat status en welvaart had kunnen opleveren."]
+    {"topic":  "2",
+     "responses": ["lijst antwoorden over uithuwelijken van kinderen"]
     },
-    {"topic":  "het grafaltaar",
-     "responses": ["Op mijn grafaltaar staat een Latijnse inscriptie.",
-                   "De inscriptie betekent: Aan de Manes [goden van de onderwereld], van Caetennia Pollitta, dochter van Publius; zij werd 10 jaren en 6 maanden oud.",
-                   "Dit altaar is voor mij gemaakt zodat familieleden plengoffers konden brengen.",
-                   "Het altaar stond in een ondergrondse tombe.",
-                   "In de medaillonvormige nis staat het portret van mij."]
+    {"topic":  "3",
+     "responses": ["lijst antwoorden over het grafmonument"]
     }
 ]
 }
