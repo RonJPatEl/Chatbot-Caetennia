@@ -115,9 +115,9 @@ def generate_response(user_input, qa_data, similar_words):
 
     return chatrobo_response
 
-# load Dutch embedding model (Wikipedia-320, from https://github.com/clips/dutchembeddings)
+# load Dutch embedding model (Wikipedia-160, from https://github.com/clips/dutchembeddings)
 print("Loading embedding model...")
-embedding_model = KeyedVectors.load_word2vec_format('wikipedia-320.txt')
+embedding_model = KeyedVectors.load_word2vec_format('word-embeddings/wikipedia-160.txt')
 
 # instantiate lemmatizer
 wnlemmatizer = nltk.stem.WordNetLemmatizer()
@@ -126,7 +126,7 @@ wnlemmatizer = nltk.stem.WordNetLemmatizer()
 punctuation_removal = dict((ord(punctuation), None) for punctuation in string.punctuation)
 
 # read in the JSON file with topics and responses
-qa_data = read_qa("qa_caetennia_version2.json")
+qa_data = read_qa("data/QandAdata.json")
 
 # print initial message 
 print("""Ik ben Caetennia en zoals op mijn grafsteen staat ben ik 10 jaar oud geworden.
@@ -142,6 +142,10 @@ Je kijkt nu naar mijn grafsteen.""")
 # start conversation
 continue_dialogue = True
 
+responses = []
+prompts == ['Het lijkt erop dat ik je vragen niet kan beantwoorden. Waarom vraag je niet iets over mijn schooltijd?',
+            "Het lijkt erop dat ik je vragen niet kan beantwoorden. Waarom vraag je niet iets over mijn hobby's?"]
+
 while continue_dialogue:
 
     # get user input
@@ -153,4 +157,16 @@ while continue_dialogue:
 
     # generate response from chatbot
     print("\nCaetennia: ", end="")
-    print(generate_response(input_question, qa_data, similar_words))
+    response = generate_response(input_question, qa_data, similar_words)
+    print(response)
+    responses.append(response)
+
+    # Check which responses were generated after 3 user inputs
+    if len(responses) == 3:
+
+        # If the chatbot could not generate a proper response three times in a row, generate a prompt
+        if responses.count("Wat leuk dat je dat wil weten, maar wat bedoel je precies? Kun je je vraag herformuleren?") == 3:
+            print(random.choice(prompts))
+
+            # Refresh list of responses
+            responses = []
