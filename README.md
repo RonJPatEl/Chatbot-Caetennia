@@ -19,4 +19,4 @@ This repository contains code to interact with a chatbot that was developed for 
   - "QandAdata.json": the same content as the file above, but converted into JSON format using the script json-formatting.py.
 
 *word-embeddings*
---> Users should place a Dutch word embedding model in this folder, which can be retrieved from https://github.com/clips/dutchembeddings. We use "wikipedia-160.txt".
+--> Users should create this folder and place a Dutch word embedding model in it, which can be retrieved from https://github.com/clips/dutchembeddings. We use "wikipedia-160.txt".
