@@ -1,26 +1,22 @@
 # Chatbot-Caetennia
-Chatbot project ICLON - OU - Museum van Oudheden
+Chatbot project ICLON - OU - Rijksmuseum van Oudheden
 
-In deze repository zetten we de code en ondersteunende documenten klaar voor de chatbot.
+This repository contains code to interact with a chatbot that was developed for the Rijksmuseum van Oudheden in Leiden.
 
+**Scripts**
 
-# our shared resources and snippets:
+*chatbot.py*
+--> Generates a dialogue with the chatbot.
 
-https://stackabuse.com/python-for-nlp-creating-a-rule-based-chatbot/
+*json-formatting.py*
+--> Converts tab-separated .txt-file into json-format, which the chatbot takes as input.
 
+**Folders**
 
-# todos (22-4-2021)
+*data*
+--> This folder contains two files:
+  - "LitOnderzoek.txt": a database of questions and answers, categorized by topic.
+  - "QandAdata.json": the same content as the file above, but converted into JSON format using the script json-formatting.py.
 
-Kasper: wireframed UI design voor simpele chat-UI.
-
-Charlotte: algoritme-flow van de chatbot
-- input-output voorbeeld voor albert en timo
-
-- taliger maken
-- experimenteren met json-structuur.
-
-Ron: feedback voorzien
-- json; wat moet de moet kunnen lezen
-- input
-- zet in google drive urenschatting
-- lda: latent dirichlet allocation inlezen (topic modeling)
+*word-embeddings*
+--> Users should place a Dutch word embedding model in this folder, which can be retrieved from https://github.com/clips/dutchembeddings. We use "wikipedia-160.txt".
