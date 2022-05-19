@@ -20,3 +20,8 @@ This repository contains code to interact with a chatbot that was developed for 
 
 *word-embeddings*
 --> Users should create this folder and place a Dutch word embedding model in it, which can be retrieved from https://github.com/clips/dutchembeddings. We use "wikipedia-160.txt".
+
+
+
+To-do:
+- herschrijf README gericht op leken
