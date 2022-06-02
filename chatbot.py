@@ -21,7 +21,7 @@ def generate_response(encoded_input_question, encoded_questions, questions, answ
     hits = util.semantic_search(encoded_input_question, encoded_questions, top_k=5)
     hits = hits[0]  # Get the hits for the first query
 
-    print("\nDe volgende vragen zijn gematcht met jouw vraag:\n")
+    print("\nDit zijn de top 5 matches voor jouw vraag:\n")
     for i, hit in enumerate(hits):
         print(questions[hit['corpus_id']], "(Score: {:.4f})".format(hit['score']))
 
