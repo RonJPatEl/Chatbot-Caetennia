@@ -1,4 +1,5 @@
 import json
+import string
 from sentence_transformers import SentenceTransformer, util
 
 def read_qa(qa_path):
@@ -14,6 +15,10 @@ def initEmbeddings():
     print("Loading embedding model...")
     return SentenceTransformer('distiluse-base-multilingual-cased-v1')
 
+def remove_punct(a_string):
+    cleaned_string = a_string.translate(str.maketrans('', '', string.punctuation))
+    return cleaned_string
+
 # Alle generatie logic wordt ook in een specifieke functie gestopt
 def generate_response(encoded_input_question, encoded_questions, questions, answers):
     '''Generate a response from the chatbot'''
@@ -27,12 +32,16 @@ def generate_response(encoded_input_question, encoded_questions, questions, answ
 
         if i == 0:
             top_scoring_question = questions[hit['corpus_id']]
+            top_score = hit['score']
 
     # get the index of the top-scoring question
     target_idx = questions.index(top_scoring_question)
 
-    # return the answer matching the top-scoring question
-    answer = f'\nCaetennia: {answers[target_idx]}'
+    if top_score > 0.4:
+        # return the answer matching the top-scoring question
+        answer = f'\nCaetennia: {answers[target_idx]}'
+    else:
+        answer = f'\nCaetennia: Ik heb daar helaas geen antwoord op. Heb je nog andere vragen?'
 
     return answer
 
@@ -56,8 +65,10 @@ def test():
     questions = [info['Vraag'] for info in qa_data.values()]
     answers = [info['Antwoord'] for info in qa_data.values()]
 
+    clean_questions = [remove_punct(q.lower()) for q in questions]
+
     # Encode the questions into vectors
-    encoded_questions = embedding_model.encode(questions)
+    encoded_questions = embedding_model.encode(clean_questions)
 
     # start conversation
     continue_dialogue = True
@@ -68,10 +79,11 @@ def test():
         input_question = (input("\nStel een vraag aan Caetennia: "))
 
         # encode user question
-        encoded_input_question = embedding_model.encode(input_question)
+        encoded_input_question = embedding_model.encode(remove_punct(input_question.lower()))
 
         # generate response from chatbot
-        print(generate_response(encoded_input_question, encoded_questions, questions, answers))
+        answer = generate_response(encoded_input_question, encoded_questions, questions, answers)
+        print(answer)
 
 if __name__ == "__main__":
     test()
