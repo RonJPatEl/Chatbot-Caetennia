@@ -2,6 +2,9 @@ import json
 import string
 from sentence_transformers import SentenceTransformer, util
 
+import spacy
+nlp = spacy.load("nl_core_news_sm")
+
 def read_qa(qa_path):
     '''Read in JSON file with topics and corresponding responses'''
     with open(qa_path, encoding='utf8') as f:
@@ -15,9 +18,20 @@ def initEmbeddings():
     print("Loading embedding model...")
     return SentenceTransformer('distiluse-base-multilingual-cased-v1')
 
-def remove_punct(a_string):
-    cleaned_string = a_string.translate(str.maketrans('', '', string.punctuation))
-    return cleaned_string
+def lemmatize(sentence):
+    doc = nlp(sentence)
+    lemmas = [word.lemma_ for word in doc]
+    lemmatized_sentence = ' '.join(lemmas)
+    return lemmatized_sentence
+
+def preprocess(question):
+    # lowercasing
+    question = question.lower()
+    # punctuation removal
+    question = question.translate(str.maketrans('', '', string.punctuation))
+    # lemmatization
+    question = lemmatize(question)
+    return question
 
 # Alle generatie logic wordt ook in een specifieke functie gestopt
 def generate_response(encoded_input_question, encoded_questions, questions, answers):
@@ -65,7 +79,8 @@ def test():
     questions = [info['Vraag'] for info in qa_data.values()]
     answers = [info['Antwoord'] for info in qa_data.values()]
 
-    clean_questions = [remove_punct(q.lower()) for q in questions]
+    clean_questions = [preprocess(q) for q in questions]
+    print(clean_questions)
 
     # Encode the questions into vectors
     encoded_questions = embedding_model.encode(clean_questions)
@@ -79,7 +94,7 @@ def test():
         input_question = (input("\nStel een vraag aan Caetennia: "))
 
         # encode user question
-        encoded_input_question = embedding_model.encode(remove_punct(input_question.lower()))
+        encoded_input_question = embedding_model.encode(preprocess(input_question))
 
         # generate response from chatbot
         answer = generate_response(encoded_input_question, encoded_questions, questions, answers)
