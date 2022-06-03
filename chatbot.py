@@ -80,7 +80,6 @@ def test():
     answers = [info['Antwoord'] for info in qa_data.values()]
 
     clean_questions = [preprocess(q) for q in questions]
-    print(clean_questions)
 
     # Encode the questions into vectors
     encoded_questions = embedding_model.encode(clean_questions)
