@@ -1,0 +1,32 @@
+2022-06-06 14:21:17.194477 USER: hallo 
+2022-06-06 14:21:17.293499 CHATBOT: Wie ben jij?(Score: 0.4401)
+2022-06-06 14:21:17.293499 CHATBOT: Welke taal spreek je?(Score: 0.3690)
+2022-06-06 14:21:17.293499 CHATBOT: Ben je verliefd?(Score: 0.3605)
+2022-06-06 14:21:17.293499 CHATBOT: Heb je familie?(Score: 0.3501)
+2022-06-06 14:21:17.293499 CHATBOT: Sloegen je ouders je?(Score: 0.3436)
+2022-06-06 14:21:17.293499 CHATBOT: 
+Caetennia: Ik ben Caetennia Pollita, een Romeins meisje van 10 jaar.
+2022-06-06 14:21:30.907217 USER: Waar woon je
+2022-06-06 14:21:30.952227 CHATBOT: Waar kom je vandaan?(Score: 0.8206)
+2022-06-06 14:21:30.952227 CHATBOT: Waar ben je begraven?(Score: 0.6640)
+2022-06-06 14:21:30.952227 CHATBOT: Wie ben jij?(Score: 0.6303)
+2022-06-06 14:21:30.952227 CHATBOT: Waar kan je je aan ergeren?(Score: 0.5715)
+2022-06-06 14:21:30.952227 CHATBOT: Wat voor eten kreeg je thuis? (Score: 0.4723)
+2022-06-06 14:21:30.952227 CHATBOT: 
+Caetennia: Ik kom uit Rome. 
+2022-06-06 14:21:37.481531 USER: Wat eet je graag
+2022-06-06 14:21:37.523539 CHATBOT: Wat voor eten kreeg je thuis? (Score: 0.6784)
+2022-06-06 14:21:37.523539 CHATBOT: Wat is een voedster?(Score: 0.6369)
+2022-06-06 14:21:37.523539 CHATBOT: Hoe werd je opgevoed?(Score: 0.4676)
+2022-06-06 14:21:37.523539 CHATBOT: Door wie werd je opgevoed?(Score: 0.4613)
+2022-06-06 14:21:37.523539 CHATBOT: Welke hobbies had je?(Score: 0.4438)
+2022-06-06 14:21:37.523539 CHATBOT: 
+Caetennia: Thuis aten we veel brood, vlees, kaas, noten, en vis, vaak met fruit zoals vijgen, appels of bessen, of groenten zoals rapen en kool. We dronken veel wijn, aangelengd met water, want anders was het veels te sterk. Als ik zin had in iets zoets, dan deed de kok vaak honing door mijn wijn heen. 
+2022-06-06 14:23:46.996185 USER: waar zat je op school>
+2022-06-06 14:23:47.271244 CHATBOT: In wat voor een klas zat je?(Score: 0.7451)
+2022-06-06 14:23:47.271244 CHATBOT: Wat leerde je op school?(Score: 0.6589)
+2022-06-06 14:23:47.271244 CHATBOT: Hoe zag je school er uit?(Score: 0.6395)
+2022-06-06 14:23:47.271244 CHATBOT: Leerde je op school rekenen?(Score: 0.6208)
+2022-06-06 14:23:47.271244 CHATBOT: Leerde je op school schrijven?(Score: 0.5856)
+2022-06-06 14:23:47.271244 CHATBOT: 
+Caetennia: Onze klassen waren gemengd: jongens en meisjes van 7 tot 12 jaar zaten bij elkaar in een groep en kregen tegelijkertijd les. We moesten wel veel zelf doen.

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot Prototype</title>
+    <link type="text/css" rel="stylesheet" href="../static/css/imessage.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Web Chatbot Prototype</h1>
+
+<button id="download_btn" onclick="location.href='/getLogData'">Click me</button>
+<div>
+    <div class="imessage">
+        <p class="from-them"><span>"Stel een vraag aan Caetennia: </span></p>
+        <img src="../static/images/grafsteen.png" style="width: 200px">
+    </div>
+    <div id="userInput">
+        <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="buttonInput" type="submit" value="Send">
+    </div>
+    <script>
+        function getBotResponse() {
+            var rawText = $("#textInput").val();
+            var userHtml = '<p class="from-me"><span>' + rawText + '</span></p>';
+            $("#textInput").val("");
+            $(".imessage").append(userHtml);
+            document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+            $.get("/getResponse", { msg: rawText }).done(function(data) {
+                console.log(data);
+                //var botHtml = '<p class="botText"><span>' + data + '</span></p>';
+                var botHtml = '<p class="from-them">' + data + '</p>';
+                $(".imessage").append(botHtml);
+                document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+            });
+            $.get("/getImage", { msg: rawText }).done(function(data) {
+                console.log(data);
+                if (data != "None"){
+                    var imgHtml = '<img src="' + data + '"style="width: 200px">'
+                    $(".imessage").append(imgHtml);
+                    document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
+                }
+            });
+
+            //console.log({{imagename}});
+        }
+        $("#textInput").keypress(function(e) {
+            if(e.which == 13) {
+                getBotResponse();
+            }
+        });
+        $("#buttonInput").click(function() {
+            getBotResponse();
+        })
+    </script>
+</div>
+</body>
+</html>
