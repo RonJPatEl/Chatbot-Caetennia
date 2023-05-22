@@ -46,7 +46,7 @@ def generate_response(encoded_input_question, encoded_questions, questions, answ
     hitList = []
     for i, hit in enumerate(hits):
         # print(questions[hit['corpus_id']], "(Score: {:.4f})".format(hit['score']))
-        hitList.append(questions[hit['corpus_id']] + "(Score: {:.4f})".format(hit['score']))
+        hitList.append(questions[hit['corpus_id']] + " (Score: {:.4f})".format(hit['score']))
 
         if i == 0:
             top_scoring_question = questions[hit['corpus_id']]
