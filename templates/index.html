@@ -12,21 +12,23 @@
 <button id="download_btn" onclick="location.href='/getLogData'">Click me</button>
 <div>
     <div class="imessage">
-        <p class="from-them"><span>"Stel een vraag aan Caetennia: </span></p>
+        <p class="from-them"><span>Stel een vraag aan Caetennia: </span></p>
         <img src="../static/images/grafsteen.png" style="width: 200px">
     </div>
     <div id="userInput">
         <input id="textInput" type="text" name="msg" placeholder="Message">
+        <input id="visit_id" type="hidden" name="visit_id" value="{{visit_id}}">
         <input id="buttonInput" type="submit" value="Send">
     </div>
     <script>
         function getBotResponse() {
             var rawText = $("#textInput").val();
+            const visitId = $("#visit_id").val();
             var userHtml = '<p class="from-me"><span>' + rawText + '</span></p>';
             $("#textInput").val("");
             $(".imessage").append(userHtml);
             document.getElementById('userInput').scrollIntoView({block: 'start', behavior: 'smooth'});
-            $.get("/getResponse", { msg: rawText }).done(function(data) {
+            $.get("/getResponse", { msg: rawText, visit: visitId }).done(function(data) {
                 console.log(data);
                 //var botHtml = '<p class="botText"><span>' + data + '</span></p>';
                 var botHtml = '<p class="from-them">' + data + '</p>';

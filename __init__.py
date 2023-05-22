@@ -6,9 +6,10 @@ import random
 import datetime
 import json
 import os
-import nltk 
+import nltk
+import secrets
 
-import chatbot
+from . import chatbot
 
 app = Flask(__name__, template_folder="templates")
 
@@ -32,11 +33,12 @@ introText = """Stel een vraag aan Caetennia: """
 def index():
     # Dit reset de chatLog wanneer de sessie geinitialiseerd wordt.
     #open('data/ChatLog.txt', 'w').close()
-    
-    return render_template('index.html')
+    # Genereer een unieke code voor dit bezoek
+    visit_id = secrets.token_urlsafe(10)
+    return render_template('index.html', visit_id=visit_id)
 
 
-@app.route('/', methods=['POST'])
+# @app.route('/', methods=['POST'])
 
 
 @app.route("/getLogData")
@@ -50,10 +52,11 @@ def getLogData():
 @app.route("/getResponse")
 def get_bot_response():
     userText = request.args.get('msg')
-    logMessage(userText, 0)
+    visit_id = request.args.get('visit', '(no visit_id)')
+    logMessage(visit_id, userText, 0)
 
     chatbot_response = chatbot.returnResponse(userText)
-    logMessage(chatbot_response, 1)
+    logMessage(visit_id, chatbot_response, 1)
 
     time.sleep(random.uniform(0.5, 1))
     return str(chatbot_response[1])
@@ -67,23 +70,18 @@ def getImage():
     return FormatImagePath
 
 
-def logMessage(response, mode):
-    timestamp = datetime.datetime.now()
+def logMessage(visit_id, response, mode):
+    timestamp = str(datetime.datetime.now())
 
-    file_object = open(DATA_FILENAME, "a")
+    with open(DATA_FILENAME, "a") as file_object:
 
-    if mode == 1:
-        for hits in response[0]:
-            file_object.write(str(timestamp) + " CHATBOT: " + hits)
-            file_object.write("\n")
+        if mode == 1:
+            for hits in response[0]:
+                file_object.write(f"{timestamp} {visit_id} CHATBOT: {hits}\n")
 
-        file_object.write(str(timestamp) + " CHATBOT: " + response[1])
-        file_object.write("\n")
-    if mode == 0:
-        file_object.write(str(timestamp) + " USER: " + response)
-        file_object.write("\n")
-        
-    file_object.close()
+            file_object.write(f"{timestamp} {visit_id} CHATBOT: {response[1]}\n")
+        elif mode == 0:
+            file_object.write(f"{timestamp} {visit_id} USER: {response}\n")
 
 
 def checkSubString(user_input):
